@@ -1,8 +1,8 @@
 package io.fdp.criminalintent;
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -33,7 +33,10 @@ public class CrimeListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Crime crime = ((CrimeAdapter) getListAdapter()).getItem(position);
-        Log.d(TAG, crime.getTitle() + " was clicked");
+
+        // Start CrimeActivity
+        Intent i = new Intent(getActivity(), CrimeActivity.class);
+        startActivity(i);
     }
 
     private class CrimeAdapter extends ArrayAdapter<Crime> {
